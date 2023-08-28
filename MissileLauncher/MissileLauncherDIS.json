@@ -1,0 +1,844 @@
+{
+   "ConfigType" : 1,
+   "DISConfig" : {
+      "AutomaticEntityStateUpdateManagement" : true,
+      "DISAppNumber" : 3003,
+      "DISDestinationAddress" : "192.168.2.255",
+      "DISDisVer" : 5,
+      "DISEnableExpertMode" : true,
+      "DISExerciseID" : 1,
+      "DISJoinMulticastGroup" : false,
+      "DISMulticastAddress" : "0.0.0.0",
+      "DISNIA" : "192.168.2.22",
+      "DISPort" : 3000,
+      "DISRcvBuffSize" : 2048,
+      "DISSiteNumber" : 1,
+      "DISUseAsyncIO" : false,
+      "EntityStatePDUUpdateFrequency" : 1,
+      "KeepAliveTimeout" : 5,
+      "SendCompleteEntityStatePDUPeriodically" : true,
+      "UseESUForKeepAlive" : true
+   },
+   "Federate" : {
+      "CallbackReportingLevel" : 1,
+      "CallbacksToLog" : false,
+      "CreateFederationExecution" : true,
+      "DeleteFederationExecution" : true,
+      "DiscoverEverything" : false,
+      "EnableAsynchronousDelivery" : false,
+      "EnableProvideAttributeValues" : false,
+      "EnableSynchronization" : false,
+      "EnableTimeConstrained" : false,
+      "EnableTimeRegulation" : false,
+      "FOMFileList" : [
+         "C:\\build\\coreDS_Python_3.10_VS2017_x64\\Release\\\\DIS_V5_IEEE_1278.1-1995_expert.xml"
+      ],
+      "FederateName" : "",
+      "FederateType" : "",
+      "FederationName" : "",
+      "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "InteractionPublishList" : [
+         {
+            "Attributes" : [
+               "SourceEntityID",
+               "TargetEntityID",
+               "ExplodingEntityID",
+               "EventID",
+               "Velocity",
+               "LocationInWorldCoordinates",
+               "BurstDescriptor",
+               "LocationInEntitysCoordinates",
+               "DetonationResult",
+               "NumberOfArticulationParameters",
+               "Padding",
+               "ArticulationParameters"
+            ],
+            "Message" : "DISinteraction.Detonation"
+         }
+      ],
+      "LogToFile" : {
+         "Destination" : "",
+         "Enabled" : 0,
+         "Filter" : "%Severity% >= error",
+         "MaxVerbose" : "%Severity% >= error"
+      },
+      "LogicalTimeImplementationName" : "Double",
+      "LookAhead" : 0.10,
+      "MIMmodule" : "",
+      "MaximumCallbackTime" : 0.10,
+      "MinimumCallbackTime" : 0.0,
+      "ObjectPublishList" : [
+         {
+            "Attributes" : [
+               "EntityID",
+               "ForceID",
+               "NumberOfVariableParameters",
+               "EntityType",
+               "AlternativeEntityType",
+               "LinearVelocity",
+               "LocationInWorldCoordinates",
+               "Orientation",
+               "Appearance",
+               "DeadReckoning",
+               "Marking",
+               "Capabilities",
+               "VariableParameters"
+            ],
+            "Object" : "DISobject.Entity State"
+         }
+      ],
+      "ObjectSubcribeList" : [
+         {
+            "Attributes" : [
+               "EntityID",
+               "ForceID",
+               "NumberOfVariableParameters",
+               "EntityType",
+               "AlternativeEntityType",
+               "LinearVelocity",
+               "LocationInWorldCoordinates",
+               "Orientation",
+               "Appearance",
+               "DeadReckoning",
+               "Marking",
+               "Capabilities",
+               "VariableParameters"
+            ],
+            "Object" : "DISobject.Entity State"
+         }
+      ],
+      "OptionalFOMFileList" : null,
+      "RegisterSynchronizationPoint" : false,
+      "RequestAttributeValuesUpdate" : true,
+      "ResignAction" : "Delete Objects",
+      "StartAtGALT" : false,
+      "SynchronizationPointName" : "SyncPoint",
+      "TimeStep" : 1.0
+   },
+   "MessageLinkSimLocalOut" : [
+      {
+         "Explosion" : "DISinteraction.Detonation"
+      }
+   ],
+   "MessageMappingOut" : [
+      {
+         "Explosion" : [
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "ArticulationParameters" : [
+                  {
+                     "ArticulationParameters" : "0"
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "BurstDescriptor" : [
+                  {
+                     "Fuse" : 2800
+                  },
+                  {
+                     "Munition.Category" : 0
+                  },
+                  {
+                     "Munition.CountryCode" : 0
+                  },
+                  {
+                     "Munition.Domain" : 0
+                  },
+                  {
+                     "Munition.EntityKind" : 0
+                  },
+                  {
+                     "Munition.Extra" : 0
+                  },
+                  {
+                     "Munition.Specific" : 0
+                  },
+                  {
+                     "Munition.Subcategory" : 0
+                  },
+                  {
+                     "Quantity" : 0
+                  },
+                  {
+                     "Rate" : 1
+                  },
+                  {
+                     "Warhead" : 4000
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "DetonationResult" : [
+                  {
+                     "DetonationResult" : 5
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "EventID" : [
+                  {
+                     "EventNumber" : 0
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : 0
+                  },
+                  {
+                     "SimulationAddress.SiteID" : 0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "ExplodingEntityID" : [
+                  {
+                     "EntityIdentify" : 0
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : 0
+                  },
+                  {
+                     "SimulationAddress.SiteID" : 0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "LocationInEntitysCoordinates" : [
+                  {
+                     "x" : 0.0
+                  },
+                  {
+                     "y" : 0.0
+                  },
+                  {
+                     "z" : 0.0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "ExplosionX"
+                  },
+                  {
+                     "Y" : "ExplosionY"
+                  },
+                  {
+                     "Z" : "ExplosionZ"
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "NumberOfArticulationParameters" : [
+                  {
+                     "NumberOfArticulationParameters" : 0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "Padding" : [
+                  {
+                     "Padding" : 0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "SourceEntityID" : [
+                  {
+                     "EntityIdentify" : 0
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : 0
+                  },
+                  {
+                     "SimulationAddress.SiteID" : 0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "TargetEntityID" : [
+                  {
+                     "EntityIdentify" : "TargetObjectID"
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : 0
+                  },
+                  {
+                     "SimulationAddress.SiteID" : 0
+                  }
+               ]
+            },
+            {
+               "Explosion" : "DISinteraction.Detonation"
+            },
+            {
+               "Velocity" : [
+                  {
+                     "XVelocity" : 0.0
+                  },
+                  {
+                     "YVelocity" : 0.0
+                  },
+                  {
+                     "ZVelocity" : 0.0
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "Metadata" : {
+      "FedInfoAppDom" : "",
+      "FedInfoMOMVer" : "",
+      "FedInfoModDate" : "",
+      "FedInfoName" : "",
+      "FedInfoPurposes" : "",
+      "FedInfoSponsor" : "",
+      "FedInfoType" : "",
+      "FedInfoVersion" : "",
+      "POCEmail" : "",
+      "POCFirstName" : "",
+      "POCHonorName" : "",
+      "POCLastName" : "",
+      "POCOrganisationName" : "",
+      "POCPhoneNumber" : ""
+   },
+   "ObjectLinkSimLocalIn" : [
+      {
+         "DISobject.Entity State" : [ "FlyingObject" ]
+      }
+   ],
+   "ObjectLinkSimLocalOut" : [
+      {
+         "MissileObject" : "DISobject.Entity State"
+      },
+      {
+         "TankObject" : "DISobject.Entity State"
+      }
+   ],
+   "ObjectMappingIn" : [
+      {
+         "DISobject.Entity State" : [
+            {
+               "DISobject.Entity State" : "FlyingObject"
+            },
+            {
+               "EntityID" : [
+                  {
+                     "EntityIdentify" : "ObjectID"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "FlyingObject"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "On Data Received" : "FilterPlanesBasedOnEntityType.lua"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "FlyingObject"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "FlyingObjectX"
+                  },
+                  {
+                     "Y" : "FlyingObjectY"
+                  },
+                  {
+                     "Z" : "FlyingObjectZ"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "ObjectMappingOut" : [
+      {
+         "MissileObject" : [
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "AlternativeEntityType" : [
+                  {
+                     "Category" : 2
+                  },
+                  {
+                     "CountryCode" : 225
+                  },
+                  {
+                     "Domain" : 9
+                  },
+                  {
+                     "EntityKind" : 2
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 4
+                  },
+                  {
+                     "Subcategory" : 14
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "Appearance" : [
+                  {
+                     "Appearance" : 0
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "Capabilities" : [
+                  {
+                     "Capabilities" : 0
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "DeadReckoning" : [
+                  {
+                     "AngularVelocity.XAngularVelocity" : 0.0
+                  },
+                  {
+                     "AngularVelocity.YAngularVelocity" : 0.0
+                  },
+                  {
+                     "AngularVelocity.ZAngularVelocity" : 0.0
+                  },
+                  {
+                     "DeadReckoningAlgorithm" : 0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationX" : 0.0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationY" : 0.0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationZ" : 0.0
+                  },
+                  {
+                     "OtherParameters" : "0"
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "EntityID" : [
+                  {
+                     "EntityIdentify" : "Automatic Generated Object ID"
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : "Configured Application Number"
+                  },
+                  {
+                     "SimulationAddress.SiteID" : "Configured Site Number"
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "Category" : 2
+                  },
+                  {
+                     "CountryCode" : 225
+                  },
+                  {
+                     "Domain" : 9
+                  },
+                  {
+                     "EntityKind" : 2
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 4
+                  },
+                  {
+                     "Subcategory" : 14
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "ForceID" : [
+                  {
+                     "ForceID" : 2
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "LinearVelocity" : [
+                  {
+                     "XVelocity" : 0.0
+                  },
+                  {
+                     "YVelocity" : 0.0
+                  },
+                  {
+                     "ZVelocity" : 0.0
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "MissileObjectX"
+                  },
+                  {
+                     "Y" : "MissileObjectY"
+                  },
+                  {
+                     "Z" : "MissileObjectZ"
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Missile"
+                  },
+                  {
+                     "MarkingEncodingType" : 1
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "NumberOfVariableParameters" : [
+                  {
+                     "NumberOfVariableParameters" : 0
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "Phi" : 0.0
+                  },
+                  {
+                     "Psi" : 0.0
+                  },
+                  {
+                     "Theta" : 0.0
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "DISobject.Entity State"
+            },
+            {
+               "VariableParameters" : [
+                  {
+                     "VariableParameters" : "0"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "TankObject" : [
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "AlternativeEntityType" : [
+                  {
+                     "Category" : 1
+                  },
+                  {
+                     "CountryCode" : 225
+                  },
+                  {
+                     "Domain" : 1
+                  },
+                  {
+                     "EntityKind" : 1
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 6
+                  },
+                  {
+                     "Subcategory" : 1
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "Appearance" : [
+                  {
+                     "Appearance" : 0
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "Capabilities" : [
+                  {
+                     "Capabilities" : 0
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "DeadReckoning" : [
+                  {
+                     "AngularVelocity.XAngularVelocity" : 0.0
+                  },
+                  {
+                     "AngularVelocity.YAngularVelocity" : 0.0
+                  },
+                  {
+                     "AngularVelocity.ZAngularVelocity" : 0.0
+                  },
+                  {
+                     "DeadReckoningAlgorithm" : 0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationX" : 0.0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationY" : 0.0
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationZ" : 0.0
+                  },
+                  {
+                     "OtherParameters" : "0"
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "EntityID" : [
+                  {
+                     "EntityIdentify" : "Automatic Generated Object ID"
+                  },
+                  {
+                     "SimulationAddress.ApplicationID" : "Configured Application Number"
+                  },
+                  {
+                     "SimulationAddress.SiteID" : "Configured Site Number"
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "Category" : 1
+                  },
+                  {
+                     "CountryCode" : 225
+                  },
+                  {
+                     "Domain" : 1
+                  },
+                  {
+                     "EntityKind" : 1
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 6
+                  },
+                  {
+                     "Subcategory" : 1
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "ForceID" : [
+                  {
+                     "ForceID" : 2
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "LinearVelocity" : [
+                  {
+                     "XVelocity" : 0.0
+                  },
+                  {
+                     "YVelocity" : 0.0
+                  },
+                  {
+                     "ZVelocity" : 0.0
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "On Data Updated" : "convertLocationToDIS.lua"
+                  },
+                  {
+                     "X" : "TankObjectX"
+                  },
+                  {
+                     "Y" : "TankObjectY"
+                  },
+                  {
+                     "Z" : "TankObjectZ"
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Tank"
+                  },
+                  {
+                     "MarkingEncodingType" : 1
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "NumberOfVariableParameters" : [
+                  {
+                     "NumberOfVariableParameters" : 0
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "Phi" : 0.0
+                  },
+                  {
+                     "Psi" : 0.0
+                  },
+                  {
+                     "Theta" : 0.0
+                  }
+               ]
+            },
+            {
+               "TankObject" : "DISobject.Entity State"
+            },
+            {
+               "VariableParameters" : [
+                  {
+                     "VariableParameters" : "0"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "RTIConfiguration" : {
+      "Compiler" : "DLC",
+      "DLLName" : "DLC_DIS-V5.dll",
+      "LocalDesignatorsExtra" : "",
+      "Manufacturer" : "",
+      "OverEncDecFOM" : "",
+      "RTILibPath" : "C:/Program Files/prti1516e/lib/vc100_64;C:/Program Files/prti1516e/jre/bin/server",
+      "Standard" : "DIS V5",
+      "SystemVariables" : null
+   },
+   "Version" : "3.0.253-dev"
+}

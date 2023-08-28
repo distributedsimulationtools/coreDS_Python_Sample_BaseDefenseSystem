@@ -1,0 +1,287 @@
+{
+   "ConfigType" : 1,
+   "DISConfig" : {
+      "AutomaticEntityStateUpdateManagement" : true,
+      "DISAppNumber" : 3001,
+      "DISDestinationAddress" : "192.168.2.255",
+      "DISDisVer" : 5,
+      "DISEnableExpertMode" : false,
+      "DISExerciseID" : 1,
+      "DISJoinMulticastGroup" : false,
+      "DISMulticastAddress" : "239.0.0.1",
+      "DISNIA" : "192.168.2.22",
+      "DISPort" : 3000,
+      "DISRcvBuffSize" : 2048,
+      "DISSiteNumber" : 1,
+      "DISUseAsyncIO" : false,
+      "EntityStatePDUUpdateFrequency" : 5,
+      "KeepAliveTimeout" : 5,
+      "SendCompleteEntityStatePDUPeriodically" : false,
+      "UseESUForKeepAlive" : false
+   },
+   "Federate" : {
+      "CallbackReportingLevel" : 1,
+      "CallbacksToLog" : false,
+      "CreateFederationExecution" : true,
+      "DeleteFederationExecution" : true,
+      "DiscoverEverything" : false,
+      "EnableAsynchronousDelivery" : false,
+      "EnableProvideAttributeValues" : false,
+      "EnableSynchronization" : false,
+      "EnableTimeConstrained" : false,
+      "EnableTimeRegulation" : false,
+      "FOMFileList" : [
+         "C:\\build\\coreDS_Python_3.10_VS2017_x64\\Release\\\\DIS_V5_IEEE_1278.1-1995.xml"
+      ],
+      "FederateName" : "",
+      "FederateType" : "",
+      "FederationName" : "",
+      "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "LogToFile" : {
+         "Destination" : "",
+         "Enabled" : 0,
+         "Filter" : "%Severity% >= error",
+         "MaxVerbose" : "%Severity% >= error"
+      },
+      "LogicalTimeImplementationName" : "Double",
+      "LookAhead" : 0.10,
+      "MIMmodule" : "",
+      "MaximumCallbackTime" : 0.10,
+      "MinimumCallbackTime" : 0.0,
+      "ObjectSubcribeList" : [
+         {
+            "Attributes" : [
+               "AlternativeEntityType",
+               "Appearance",
+               "ArticulatedParameters",
+               "Capabilities",
+               "DeadReckoning",
+               "EntityID",
+               "EntityType",
+               "ForceID",
+               "LinearVelocity",
+               "LocationInWorldCoordinates",
+               "Marking",
+               "NumberOfArticulation",
+               "Orientation"
+            ],
+            "Object" : "DISobject.Entity State"
+         }
+      ],
+      "OptionalFOMFileList" : null,
+      "RegisterSynchronizationPoint" : false,
+      "RequestAttributeValuesUpdate" : true,
+      "ResignAction" : "Delete Objects",
+      "StartAtGALT" : false,
+      "SynchronizationPointName" : "SyncPoint",
+      "TimeStep" : 1.0
+   },
+   "Metadata" : {
+      "FedInfoAppDom" : "",
+      "FedInfoMOMVer" : "",
+      "FedInfoModDate" : "",
+      "FedInfoName" : "",
+      "FedInfoPurposes" : "",
+      "FedInfoSponsor" : "",
+      "FedInfoType" : "",
+      "FedInfoVersion" : "",
+      "POCEmail" : "",
+      "POCFirstName" : "",
+      "POCHonorName" : "",
+      "POCLastName" : "",
+      "POCOrganisationName" : "",
+      "POCPhoneNumber" : ""
+   },
+   "ObjectLinkSimLocalIn" : [
+      {
+         "DISobject.Entity State" : [ "Airplane", "MissileObject", "Tank" ]
+      }
+   ],
+   "ObjectMappingIn" : [
+      {
+         "DISobject.Entity State" : [
+            {
+               "DISobject.Entity State" : "Airplane"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "On Data Received" : "FilterPlanesBasedOnEntityType.lua"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Airplane"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "X"
+                  },
+                  {
+                     "Y" : "Y"
+                  },
+                  {
+                     "Z" : "Z"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Airplane"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Name"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Airplane"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "Phi" : "yaw"
+                  },
+                  {
+                     "Psi" : "roll"
+                  },
+                  {
+                     "Theta" : "pitch"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "DISobject.Entity State" : [
+            {
+               "DISobject.Entity State" : "MissileObject"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "On Data Received" : "FilterWeaponBasedOnEntityType.lua"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "MissileObject"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "X"
+                  },
+                  {
+                     "Y" : "Y"
+                  },
+                  {
+                     "Z" : "Z"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "MissileObject"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Name"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "MissileObject"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "On Data Received" : "convertOrientationFromDIS.lua"
+                  },
+                  {
+                     "Phi" : "yaw"
+                  },
+                  {
+                     "Psi" : "roll"
+                  },
+                  {
+                     "Theta" : "pitch"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "DISobject.Entity State" : [
+            {
+               "DISobject.Entity State" : "Tank"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "On Data Received" : "FilterTankBasedOnEntityType.lua"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Tank"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "X"
+                  },
+                  {
+                     "Y" : "Y"
+                  },
+                  {
+                     "Z" : "Z"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Tank"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Name"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Tank"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "On Data Received" : "convertOrientationFromDIS.lua"
+                  },
+                  {
+                     "Phi" : "yaw"
+                  },
+                  {
+                     "Psi" : "roll"
+                  },
+                  {
+                     "Theta" : "pitch"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "RTIConfiguration" : {
+      "Compiler" : "DLC",
+      "DLLName" : "DLC_DIS-V5.dll",
+      "LocalDesignatorsExtra" : "",
+      "Manufacturer" : "",
+      "OverEncDecFOM" : "",
+      "RTILibPath" : "",
+      "Standard" : "DIS V5",
+      "SystemVariables" : null
+   },
+   "Version" : "3.0.253-dev"
+}

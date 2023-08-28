@@ -1,0 +1,7 @@
+Aircraft/.vs/
+MissileLauncher/.vs/
+MissileLauncher/logs/
+Viewer/.vs/
+Viewer/.vscode/
+Viewer/__pycache__/
+Viewer/logs/portico.log

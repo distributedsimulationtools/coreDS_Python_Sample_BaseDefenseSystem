@@ -1,0 +1,181 @@
+{
+   "ConfigType" : 0,
+   "DISConfig" : {
+      "AutomaticEntityStateUpdateManagement" : true,
+      "DISAppNumber" : 3001,
+      "DISDestinationAddress" : "0.0.0.255",
+      "DISDisVer" : 5,
+      "DISEnableExpertMode" : false,
+      "DISExerciseID" : 1,
+      "DISJoinMulticastGroup" : false,
+      "DISMulticastAddress" : "224.0.0.1",
+      "DISNIA" : "0.0.0.0",
+      "DISPort" : 3000,
+      "DISRcvBuffSize" : 2048,
+      "DISSiteNumber" : 1,
+      "DISUseAsyncIO" : false,
+      "EntityStatePDUUpdateFrequency" : 5,
+      "KeepAliveTimeout" : 5,
+      "SendCompleteEntityStatePDUPeriodically" : false,
+      "UseESUForKeepAlive" : false
+   },
+   "Federate" : {
+      "CallbackReportingLevel" : 1,
+      "CallbacksToLog" : false,
+      "CreateFederationExecution" : true,
+      "DeleteFederationExecution" : true,
+      "DiscoverEverything" : false,
+      "EnableAsynchronousDelivery" : false,
+      "EnableProvideAttributeValues" : false,
+      "EnableSynchronization" : false,
+      "EnableTimeConstrained" : false,
+      "EnableTimeRegulation" : false,
+      "FOMFileList" : [
+         "RPR_FOM_v2.0_1516-2010.xml"
+      ],
+      "FederateName" : "Viewer",
+      "FederateType" : "Viewer",
+      "FederationName" : "Demo",
+      "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "LogToFile" : {
+         "Destination" : "",
+         "Enabled" : 0,
+         "Filter" : "%Severity% >= error",
+         "MaxVerbose" : "%Severity% >= error"
+      },
+      "LogicalTimeImplementationName" : "Double",
+      "LookAhead" : 0.10,
+      "MIMmodule" : "",
+      "MaximumCallbackTime" : 0.10,
+      "MinimumCallbackTime" : 0.0,
+      "ObjectSubcribeList" : [
+         {
+            "Attributes" : [ "Spatial", "Marking" ],
+            "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition"
+         },
+         {
+            "Attributes" : [ "Spatial", "Marking" ],
+            "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft"
+         },
+         {
+            "Attributes" : [ "Spatial", "Marking" ],
+            "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle"
+         }
+      ],
+      "OptionalFOMFileList" : null,
+      "RegisterSynchronizationPoint" : false,
+      "RequestAttributeValuesUpdate" : true,
+      "ResignAction" : "Delete Objects",
+      "StartAtGALT" : false,
+      "SynchronizationPointName" : "SyncPoint",
+      "TimeStep" : 1.0
+   },
+   "MessageLinkSimLocalIn" : [
+      {
+         "HLAinteractionRoot.MunitionDetonation" : [ "Explosion" ]
+      },
+      {
+         "HLAinteractionRoot.WeaponFire" : [ "Explosion" ]
+      }
+   ],
+   "Metadata" : {
+      "FedInfoAppDom" : "",
+      "FedInfoMOMVer" : "",
+      "FedInfoModDate" : "",
+      "FedInfoName" : "",
+      "FedInfoPurposes" : "",
+      "FedInfoSponsor" : "",
+      "FedInfoType" : "",
+      "FedInfoVersion" : "",
+      "POCEmail" : "",
+      "POCFirstName" : "",
+      "POCHonorName" : "",
+      "POCLastName" : "",
+      "POCOrganisationName" : "",
+      "POCPhoneNumber" : ""
+   },
+   "ObjectLinkSimLocalIn" : [
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition" : [ "MissileObject" ]
+      },
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft" : [ "Airplane" ]
+      },
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle" : [ "Tank" ]
+      }
+   ],
+   "ObjectMappingIn" : [
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition" : [
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition" : "MissileObject"
+            },
+            {
+               "Spatial" : [
+                  {
+                     "WorldLocation.X" : "X"
+                  },
+                  {
+                     "WorldLocation.Y" : "Y"
+                  },
+                  {
+                     "WorldLocation.Z" : "Z"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft" : [
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft" : "Airplane"
+            },
+            {
+               "Spatial" : [
+                  {
+                     "WorldLocation.X" : "X"
+                  },
+                  {
+                     "WorldLocation.Y" : "Y"
+                  },
+                  {
+                     "WorldLocation.Z" : "Z"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle" : [
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle" : "Tank"
+            },
+            {
+               "Spatial" : [
+                  {
+                     "WorldLocation.X" : "X"
+                  },
+                  {
+                     "WorldLocation.Y" : "Y"
+                  },
+                  {
+                     "WorldLocation.Z" : "Z"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "RTIConfiguration" : {
+      "Compiler" : "VC100",
+      "DLLName" : "Portico_1516e_VC100_x64.dll",
+      "LocalDesignatorsExtra" : "",
+      "Manufacturer" : "Portico",
+      "OverEncDecFOM" : "",
+      "RTILibPath" : "C:\\code\\RTIs\\portico\\codebase\\dist\\portico-2.666.0\\bin\\vc10;C:\\code\\RTIs\\portico\\codebase\\dist\\portico-2.666.0\\jre\\bin\\server",
+      "Standard" : "1516e",
+      "SystemVariables" : null
+   },
+   "Version" : "3.0.253-dev"
+}
