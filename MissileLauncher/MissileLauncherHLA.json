@@ -3,8 +3,8 @@
    "DISConfig" : {
       "AutomaticEntityStateUpdateManagement" : true,
       "DISAppNumber" : 3001,
-      "DISDestinationAddress" : "0.0.0.255",
-      "DISDisVer" : 5,
+      "DISDestinationAddress" : "0.0.0.0",
+      "DISDisVer" : 7,
       "DISEnableExpertMode" : false,
       "DISExerciseID" : 1,
       "DISJoinMulticastGroup" : false,
@@ -13,13 +13,17 @@
       "DISPort" : 3000,
       "DISRcvBuffSize" : 2048,
       "DISSiteNumber" : 1,
+      "DISTimeStampFormat" : 0,
       "DISUseAsyncIO" : false,
+      "DropOutofSequencePacketAbsolute" : false,
+      "DropOutofSequencePacketEntity" : false,
       "EntityStatePDUUpdateFrequency" : 5,
       "KeepAliveTimeout" : 5,
       "SendCompleteEntityStatePDUPeriodically" : false,
       "UseESUForKeepAlive" : false
    },
    "Federate" : {
+      "AutoAchieveSyncPoints" : false,
       "CallbackReportingLevel" : 1,
       "CallbacksToLog" : false,
       "CreateFederationExecution" : true,
@@ -30,12 +34,10 @@
       "EnableSynchronization" : false,
       "EnableTimeConstrained" : false,
       "EnableTimeRegulation" : false,
-      "FOMFileList" : [
-         "RPR_FOM_v2.0_1516-2010.xml"
-      ],
+      "FOMFileList" : [ "RPR_FOM_v2.0_1516-2010.xml" ],
       "FederateName" : "Weapon",
       "FederateType" : "Weapon",
-      "FederationName" : "Demo",
+      "FederationName" : "coreDSPython",
       "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
       "LogToFile" : {
          "Destination" : "",
@@ -50,11 +52,11 @@
       "MinimumCallbackTime" : 0.0,
       "ObjectPublishList" : [
          {
-            "Attributes" : [ "Spatial" ],
+            "Attributes" : [ "Spatial", "EntityType" ],
             "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition"
          },
          {
-            "Attributes" : [ "Spatial" ],
+            "Attributes" : [ "Spatial", "EntityType" ],
             "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle"
          }
       ],
@@ -67,7 +69,7 @@
       "OptionalFOMFileList" : null,
       "RegisterSynchronizationPoint" : false,
       "RequestAttributeValuesUpdate" : true,
-      "ResignAction" : "Delete Objects",
+      "ResignAction" : "Delete Objects and Release Attributes / Delete Objects then Divest",
       "StartAtGALT" : false,
       "SynchronizationPointName" : "SyncPoint",
       "TimeStep" : 1.0
@@ -130,6 +132,34 @@
                "MissileObject" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition"
             },
             {
+               "EntityType" : [
+                  {
+                     "Category" : 0
+                  },
+                  {
+                     "CountryCode" : 0
+                  },
+                  {
+                     "Domain" : 0
+                  },
+                  {
+                     "EntityKind" : 3
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 0
+                  },
+                  {
+                     "Subcategory" : 0
+                  }
+               ]
+            },
+            {
+               "MissileObject" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Munition"
+            },
+            {
                "Spatial" : [
                   {
                      "DeadReckoningAlgorithm" : 1
@@ -165,6 +195,34 @@
                "TankObject" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle"
             },
             {
+               "EntityType" : [
+                  {
+                     "Category" : 0
+                  },
+                  {
+                     "CountryCode" : 0
+                  },
+                  {
+                     "Domain" : 0
+                  },
+                  {
+                     "EntityKind" : 2
+                  },
+                  {
+                     "Extra" : 0
+                  },
+                  {
+                     "Specific" : 0
+                  },
+                  {
+                     "Subcategory" : 0
+                  }
+               ]
+            },
+            {
+               "TankObject" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.GroundVehicle"
+            },
+            {
                "Spatial" : [
                   {
                      "DeadReckoningAlgorithm" : 1
@@ -196,14 +254,14 @@
       }
    ],
    "RTIConfiguration" : {
-      "Compiler" : "VC100",
-      "DLLName" : "Portico_1516e_VC100_x64.dll",
+      "Compiler" : "VC142",
+      "DLLName" : "Mak_1516e_VC142_x64",
       "LocalDesignatorsExtra" : "",
-      "Manufacturer" : "Portico",
+      "Manufacturer" : "Mak",
       "OverEncDecFOM" : "",
-      "RTILibPath" : "C:\\code\\RTIs\\portico\\codebase\\dist\\portico-2.666.0\\bin\\vc10;C:\\code\\RTIs\\portico\\codebase\\dist\\portico-2.666.0\\jre\\bin\\server",
+      "RTILibPath" : "",
       "Standard" : "1516e",
       "SystemVariables" : null
    },
-   "Version" : "3.0.253-dev"
+   "Version" : "3.0.498-dev"
 }

@@ -120,75 +120,81 @@ if (ioconfig.exists("ConfigFile") and ioconfig["ConfigFile"].toString() != ""): 
     outputTankCoordinates["TankObjectY"] = centerLatitude
     outputTankCoordinates["TankObjectZ"] = elevation
 
-    while stopEverything==False:
-        #Create our tank
-        coreDSInstance.updateObject("Tank", "TankObject", outputTankCoordinates) 
+    try:
+        print ("Press ctrl-c to stop")
 
-        if (aircraftManagerObj.aircraftList != {}):
-            if (ident == 0):
-                ident = list(aircraftManagerObj.aircraftList.keys())[0]
-            
-            # At least one aircraft as been found
-            # Activate wait for 10 seconds
-            waitActivated = True
-            
-            remainingTime = remainingTime - waitTimerDelay
-  
-            if (remainingTime <= 0):
-                distance = calculateDistance(aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectX"].toDouble(),
-                    currentMissileX, aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectY"].toDouble(),
-                    currentMissileY, aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectZ"].toDouble(), currentMissileZ)
-                    
-                print ("Distance before impact " + str(distance))
+        while stopEverything==False:
+            #Create our tank
+            coreDSInstance.updateObject("Tank", "TankObject", outputTankCoordinates) 
+
+            if (aircraftManagerObj.aircraftList != {}):
+                if (ident == 0):
+                    ident = list(aircraftManagerObj.aircraftList.keys())[0]
                 
-                #Missile is near the aircraft
-                if (distance <= 3000):
-                    
-                    #Destroy our missile
-                    coreDSInstance.deleteObject("Missile")
-                    
-                    #Emit MunitionDetotation message
-                    outputvals = coreDSPython.CVariant()
-                    outputvals["ExplosionX"] = currentMissileX
-                    outputvals["ExplosionY"] = currentMissileY
-                    outputvals["ExplosionZ"] = currentMissileZ
-                    outputvals["TargetObjectID"] = aircraftManagerObj.aircraftList[ident]['value']["ObjectID"].toInt()
-
-                    coreDSInstance.sendMessage("Explosion", outputvals)
-
-                    #Job done, stop everything
-                    stopEverything = True
-                else:
-                    dx, dy, dz = (aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectX"].toDouble()-currentMissileX,
-                         aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectY"].toDouble() - currentMissileY,
-                        aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectZ"].toDouble() - currentMissileZ)
-   
-                    currentMissileX = currentMissileX + (dx/10) 
-                    currentMissileY = currentMissileY + (dy/10)
-                    currentMissileZ = currentMissileZ + (dz/10)
-                    
-                    #create the missile and update it's position
-                    outputvals = coreDSPython.CVariant()
-                    outputvals["MissileObjectX"] = currentMissileX
-                    outputvals["MissileObjectY"] = currentMissileY
-                    outputvals["MissileObjectZ"] = currentMissileZ
-                    coreDSInstance.updateObject("Missile", "MissileObject", outputvals) 
-                    
-                if (launched == False):
-                    #Emit WeaponFire message
-                    outputvals = coreDSPython.CVariant()
-                    outputvals["ExplosionX"] = currentMissileX
-                    outputvals["ExplosionX"] = currentMissileY
-                    outputvals["ExplosionX"] = currentMissileZ
-                    coreDSInstance.sendMessage("Explosion", outputvals)
-                    launched = True
+                # At least one aircraft as been found
+                # Activate wait for 10 seconds
+                waitActivated = True
                 
-        coreDSInstance.step() # Check for new data from the simulation backend
-        time.sleep(waitTimerDelay) # sleep, no need to flood the network
-        
-        if (aircraftManagerObj.aircraftList != {} and remainingTime > -1):
-            print ("Aircraft found, launching in " + str(remainingTime))
-        
+                remainingTime = remainingTime - waitTimerDelay
+    
+                if (remainingTime <= 0):
+                    distance = calculateDistance(aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectX"].toDouble(),
+                        currentMissileX, aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectY"].toDouble(),
+                        currentMissileY, aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectZ"].toDouble(), currentMissileZ)
+                        
+                    print ("Distance before impact " + str(distance))
+                    
+                    #Missile is near the aircraft
+                    if (distance <= 3000):
+                        
+                        #Destroy our missile
+                        coreDSInstance.deleteObject("Missile")
+                        
+                        #Emit MunitionDetotation message
+                        outputvals = coreDSPython.CVariant()
+                        outputvals["ExplosionX"] = currentMissileX
+                        outputvals["ExplosionY"] = currentMissileY
+                        outputvals["ExplosionZ"] = currentMissileZ
+                        outputvals["TargetObjectID"] = aircraftManagerObj.aircraftList[ident]['value']["ObjectID"].toInt()
+
+                        coreDSInstance.sendMessage("Explosion", outputvals)
+
+                        #Job done, stop everything
+                        stopEverything = True
+                    else:
+                        dx, dy, dz = (aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectX"].toDouble()-currentMissileX,
+                            aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectY"].toDouble() - currentMissileY,
+                            aircraftManagerObj.aircraftList[ident]['value']["FlyingObjectZ"].toDouble() - currentMissileZ)
+    
+                        currentMissileX = currentMissileX + (dx/10) 
+                        currentMissileY = currentMissileY + (dy/10)
+                        currentMissileZ = currentMissileZ + (dz/10)
+                        
+                        #create the missile and update it's position
+                        outputvals = coreDSPython.CVariant()
+                        outputvals["MissileObjectX"] = currentMissileX
+                        outputvals["MissileObjectY"] = currentMissileY
+                        outputvals["MissileObjectZ"] = currentMissileZ
+                        coreDSInstance.updateObject("Missile", "MissileObject", outputvals) 
+                        
+                    if (launched == False):
+                        #Emit WeaponFire message
+                        outputvals = coreDSPython.CVariant()
+                        outputvals["ExplosionX"] = currentMissileX
+                        outputvals["ExplosionX"] = currentMissileY
+                        outputvals["ExplosionX"] = currentMissileZ
+                        coreDSInstance.sendMessage("Explosion", outputvals)
+                        launched = True
+                    
+            coreDSInstance.step() # Check for new data from the simulation backend
+            time.sleep(waitTimerDelay) # sleep, no need to flood the network
+            
+            if (aircraftManagerObj.aircraftList != {} and remainingTime > -1):
+                print ("Aircraft found, launching in " + str(remainingTime))
+    except KeyboardInterrupt:
+        print("Stopping everything")
+        stopEverything = True
+        coreDSInstance.deinit() 
 else:
     print("No coreDS configuration has been loaded - Distributed simulation has been disabled")
 
