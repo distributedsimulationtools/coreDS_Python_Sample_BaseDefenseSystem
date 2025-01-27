@@ -1,0 +1,217 @@
+{
+   "ConfigType" : 1,
+   "DISConfig" : {
+      "AutomaticEntityStateUpdateManagement" : true,
+      "DISAppNumber" : 3001,
+      "DISDestinationAddress" : "192.168.2.255",
+      "DISDisVer" : 5,
+      "DISEnableExpertMode" : false,
+      "DISExerciseID" : 1,
+      "DISJoinMulticastGroup" : false,
+      "DISMulticastAddress" : "0.0.0.0",
+      "DISNIA" : "192.168.2.68",
+      "DISPort" : 3000,
+      "DISRcvBuffSize" : 2048,
+      "DISSiteNumber" : 1,
+      "DISTimeStampFormat" : 0,
+      "DISUseAsyncIO" : false,
+      "DropOutofSequencePacketAbsolute" : false,
+      "DropOutofSequencePacketEntity" : false,
+      "EntityStatePDUUpdateFrequency" : 1,
+      "KeepAliveTimeout" : 5,
+      "SendCompleteEntityStatePDUPeriodically" : true,
+      "UseESUForKeepAlive" : true
+   },
+   "Federate" : {
+      "AutoAchieveSyncPoints" : true,
+      "CallbackReportingLevel" : 1,
+      "CallbacksToLog" : false,
+      "CreateFederationExecution" : true,
+      "DeleteFederationExecution" : true,
+      "DiscoverEverything" : false,
+      "EnableAsynchronousDelivery" : false,
+      "EnableProvideAttributeValues" : false,
+      "EnableSynchronization" : false,
+      "EnableTimeConstrained" : false,
+      "EnableTimeRegulation" : false,
+      "FOMFileList" : [
+         "C:\\Program Files\\ds.tools\\coreDS Python\\\\DIS_V5_IEEE_1278.1-1995.xml"
+      ],
+      "FederateName" : "",
+      "FederateType" : "",
+      "FederationName" : "",
+      "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "LogToFile" : {
+         "Destination" : "",
+         "Enabled" : 0,
+         "Filter" : "%Severity% >= error",
+         "MaxVerbose" : "%Severity% >= error"
+      },
+      "LogicalTimeImplementationName" : "Double",
+      "LookAhead" : 0.10,
+      "MIMmodule" : "",
+      "MaximumCallbackTime" : 0.10,
+      "MinimumCallbackTime" : 0.0,
+      "ObjectSubcribeList" : [
+         {
+            "Attributes" : [
+               "EntityID",
+               "ForceID",
+               "NumberOfVariableParameters",
+               "EntityType",
+               "AlternativeEntityType",
+               "LinearVelocity",
+               "LocationInWorldCoordinates",
+               "Orientation",
+               "Appearance",
+               "DeadReckoning",
+               "Marking",
+               "Capabilities",
+               "VariableParameters"
+            ],
+            "Object" : "DISobject.Entity State"
+         }
+      ],
+      "OptionalFOMFileList" : null,
+      "RegisterSynchronizationPoint" : false,
+      "RequestAttributeValuesUpdate" : true,
+      "ResignAction" : "Delete Objects",
+      "StartAtGALT" : false,
+      "SynchronizationPointName" : "SyncPoint",
+      "TimeStep" : 1.0
+   },
+   "Metadata" : {
+      "FedInfoAppDom" : "",
+      "FedInfoMOMVer" : "",
+      "FedInfoModDate" : "",
+      "FedInfoName" : "",
+      "FedInfoPurposes" : "",
+      "FedInfoSponsor" : "",
+      "FedInfoType" : "",
+      "FedInfoVersion" : "",
+      "POCEmail" : "",
+      "POCFirstName" : "",
+      "POCHonorName" : "",
+      "POCLastName" : "",
+      "POCOrganisationName" : "",
+      "POCPhoneNumber" : ""
+   },
+   "ObjectLinkSimLocalIn" : [
+      {
+         "DISobject.Entity State" : [ "Object" ]
+      }
+   ],
+   "ObjectMappingIn" : [
+      {
+         "DISobject.Entity State" : [
+            {
+               "DISobject.Entity State" : "Object"
+            },
+            {
+               "DeadReckoning" : [
+                  {
+                     "AngularVelocity.XAngularVelocity" : "DR_AngularVelocityX"
+                  },
+                  {
+                     "AngularVelocity.YAngularVelocity" : "DR_AngularVelocityY"
+                  },
+                  {
+                     "AngularVelocity.ZAngularVelocity" : "DR_AngularVelocityZ"
+                  },
+                  {
+                     "DeadReckoningAlgorithm" : "DR_Mode"
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationX" : "DR_LinearAccelerationX"
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationY" : "DR_AngularVelocityY"
+                  },
+                  {
+                     "LinearVelocity.LinearAccelerationZ" : "DR_AngularVelocityZ"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Object"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "EntityKind" : "ObjClass"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Object"
+            },
+            {
+               "LinearVelocity" : [
+                  {
+                     "XVelocity" : "DR_LinearVelocityX"
+                  },
+                  {
+                     "YVelocity" : "DR_LinearVelocityY"
+                  },
+                  {
+                     "ZVelocity" : "DR_LinearVelocityZ"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Object"
+            },
+            {
+               "LocationInWorldCoordinates" : [
+                  {
+                     "X" : "Location.X"
+                  },
+                  {
+                     "Y" : "Location.Y"
+                  },
+                  {
+                     "Z" : "Location.Z"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Object"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Name"
+                  }
+               ]
+            },
+            {
+               "DISobject.Entity State" : "Object"
+            },
+            {
+               "Orientation" : [
+                  {
+                     "Phi" : "Orientation.Phi"
+                  },
+                  {
+                     "Psi" : "Orientation.Psi"
+                  },
+                  {
+                     "Theta" : "Orientation.Theta"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "RTIConfiguration" : {
+      "Compiler" : "DLC",
+      "DLLName" : "DLC_DIS-V5",
+      "LocalDesignatorsExtra" : "",
+      "Manufacturer" : "",
+      "OverEncDecFOM" : "",
+      "RTILibPath" : "",
+      "Standard" : "DIS V5",
+      "SystemVariables" : null
+   },
+   "Version" : "3.0.491-dev"
+}

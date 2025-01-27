@@ -1,0 +1,179 @@
+{
+   "ConfigType" : 0,
+   "DISConfig" : {
+      "AutomaticEntityStateUpdateManagement" : true,
+      "DISAppNumber" : 3001,
+      "DISDestinationAddress" : "0.0.0.0",
+      "DISDisVer" : 7,
+      "DISEnableExpertMode" : false,
+      "DISExerciseID" : 1,
+      "DISJoinMulticastGroup" : false,
+      "DISMulticastAddress" : "224.0.0.1",
+      "DISNIA" : "0.0.0.0",
+      "DISPort" : 3000,
+      "DISRcvBuffSize" : 2048,
+      "DISSiteNumber" : 1,
+      "DISTimeStampFormat" : 0,
+      "DISUseAsyncIO" : false,
+      "DropOutofSequencePacketAbsolute" : false,
+      "DropOutofSequencePacketEntity" : false,
+      "EntityStatePDUUpdateFrequency" : 5,
+      "KeepAliveTimeout" : 5,
+      "SendCompleteEntityStatePDUPeriodically" : false,
+      "UseESUForKeepAlive" : false
+   },
+   "Federate" : {
+      "AutoAchieveSyncPoints" : true,
+      "CallbackReportingLevel" : 1,
+      "CallbacksToLog" : false,
+      "CreateFederationExecution" : true,
+      "DeleteFederationExecution" : true,
+      "DiscoverEverything" : false,
+      "EnableAsynchronousDelivery" : false,
+      "EnableProvideAttributeValues" : false,
+      "EnableSynchronization" : false,
+      "EnableTimeConstrained" : false,
+      "EnableTimeRegulation" : false,
+      "FOMFileList" : [
+         "C:\\code\\ds.tools_git\\coreDS_Python\\Samples\\BaseDefenseSystem\\Viewer_matplotlib\\RPR_FOM_v2.0_1516-2010.xml"
+      ],
+      "FederateName" : "Viewer",
+      "FederateType" : "Viewer",
+      "FederationName" : "coreDSPython",
+      "HLACallbackDeliveryMecanism" : "HLA_IMMEDIATE",
+      "LogToFile" : {
+         "Destination" : "",
+         "Enabled" : 0,
+         "Filter" : "%Severity% >= error",
+         "MaxVerbose" : "%Severity% >= error"
+      },
+      "LogicalTimeImplementationName" : "Double",
+      "LookAhead" : 0.10,
+      "MIMmodule" : "",
+      "MaximumCallbackTime" : 0.10,
+      "MinimumCallbackTime" : 0.0,
+      "ObjectSubcribeList" : [
+         {
+            "Attributes" : [ "Spatial", "EntityIdentifier", "EntityType", "Marking" ],
+            "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity"
+         }
+      ],
+      "OptionalFOMFileList" : null,
+      "RegisterSynchronizationPoint" : false,
+      "RequestAttributeValuesUpdate" : true,
+      "ResignAction" : "Delete Objects",
+      "StartAtGALT" : false,
+      "SynchronizationPointName" : "SyncPoint",
+      "TimeStep" : 1.0
+   },
+   "Metadata" : {
+      "FedInfoAppDom" : "",
+      "FedInfoMOMVer" : "",
+      "FedInfoModDate" : "",
+      "FedInfoName" : "",
+      "FedInfoPurposes" : "",
+      "FedInfoSponsor" : "",
+      "FedInfoType" : "",
+      "FedInfoVersion" : "",
+      "POCEmail" : "",
+      "POCFirstName" : "",
+      "POCHonorName" : "",
+      "POCLastName" : "",
+      "POCOrganisationName" : "",
+      "POCPhoneNumber" : ""
+   },
+   "ObjectLinkSimLocalIn" : [
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity" : [ "Object" ]
+      }
+   ],
+   "ObjectMappingIn" : [
+      {
+         "HLAobjectRoot.BaseEntity.PhysicalEntity" : [
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity" : "Object"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "EntityKind" : "ObjClass"
+                  }
+               ]
+            },
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity" : "Object"
+            },
+            {
+               "Marking" : [
+                  {
+                     "MarkingData" : "Name"
+                  }
+               ]
+            },
+            {
+               "HLAobjectRoot.BaseEntity.PhysicalEntity" : "Object"
+            },
+            {
+               "Spatial" : [
+                  {
+                     "AccelerationVector.XAcceleration" : "DR_LinearAccelerationX"
+                  },
+                  {
+                     "AccelerationVector.YAcceleration" : "DR_LinearAccelerationY"
+                  },
+                  {
+                     "AccelerationVector.ZAcceleration" : "DR_LinearAccelerationZ"
+                  },
+                  {
+                     "AngularVelocity.XAngularVelocity" : "DR_AngularVelocityX"
+                  },
+                  {
+                     "AngularVelocity.YAngularVelocity" : "DR_AngularVelocityY"
+                  },
+                  {
+                     "AngularVelocity.ZAngularVelocity" : "DR_AngularVelocityZ"
+                  },
+                  {
+                     "Orientation.Phi" : "Orientation.Psi"
+                  },
+                  {
+                     "Orientation.Psi" : "Orientation.Psi"
+                  },
+                  {
+                     "Orientation.Theta" : "Orientation.Theta"
+                  },
+                  {
+                     "VelocityVector.XVelocity" : "DR_LinearVelocityX"
+                  },
+                  {
+                     "VelocityVector.YVelocity" : "DR_LinearVelocityY"
+                  },
+                  {
+                     "VelocityVector.ZVelocity" : "DR_LinearAccelerationZ"
+                  },
+                  {
+                     "WorldLocation.X" : "Location.X"
+                  },
+                  {
+                     "WorldLocation.Y" : "Location.Y"
+                  },
+                  {
+                     "WorldLocation.Z" : "Location.Z"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "RTIConfiguration" : {
+      "Compiler" : "VC141",
+      "DLLName" : "Mak_1516e_VC141_x64",
+      "LocalDesignatorsExtra" : "",
+      "Manufacturer" : "Mak",
+      "OverEncDecFOM" : "",
+      "RTILibPath" : "",
+      "Standard" : "1516e",
+      "SystemVariables" : null
+   },
+   "Version" : "3.0.498-dev"
+}
