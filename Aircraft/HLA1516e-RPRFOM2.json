@@ -3,8 +3,8 @@
    "DISConfig" : {
       "AutomaticEntityStateUpdateManagement" : true,
       "DISAppNumber" : 3001,
-      "DISDestinationAddress" : "0.0.0.255",
-      "DISDisVer" : 5,
+      "DISDestinationAddress" : "0.0.0.0",
+      "DISDisVer" : 7,
       "DISEnableExpertMode" : false,
       "DISExerciseID" : 1,
       "DISJoinMulticastGroup" : false,
@@ -13,13 +13,17 @@
       "DISPort" : 3000,
       "DISRcvBuffSize" : 2048,
       "DISSiteNumber" : 1,
+      "DISTimeStampFormat" : 0,
       "DISUseAsyncIO" : false,
+      "DropOutofSequencePacketAbsolute" : false,
+      "DropOutofSequencePacketEntity" : false,
       "EntityStatePDUUpdateFrequency" : 5,
       "KeepAliveTimeout" : 5,
       "SendCompleteEntityStatePDUPeriodically" : false,
       "UseESUForKeepAlive" : false
    },
    "Federate" : {
+      "AutoAchieveSyncPoints" : true,
       "CallbackReportingLevel" : 1,
       "CallbacksToLog" : false,
       "CreateFederationExecution" : true,
@@ -30,11 +34,13 @@
       "EnableSynchronization" : false,
       "EnableTimeConstrained" : false,
       "EnableTimeRegulation" : false,
-      "FOMFileList" : [ "RPR_FOM_v2.0_1516-2010.xml" ],
+      "FOMFileList" : [
+         "C:\\code\\ds.tools_git\\coreDS_Python\\Samples\\BaseDefenseSystem\\Aircraft\\RPR_FOM_v2.0_1516-2010.xml"
+      ],
       "FederateName" : "Aircraft",
       "FederateType" : "Aircraft",
-      "FederationName" : "Demo",
-      "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "FederationName" : "coreDSPython",
+      "HLACallbackDeliveryMecanism" : "HLA_IMMEDIATE",
       "LogToFile" : {
          "Destination" : "",
          "Enabled" : 0,
@@ -48,7 +54,7 @@
       "MinimumCallbackTime" : 0.0,
       "ObjectPublishList" : [
          {
-            "Attributes" : [ "Spatial", "Marking" ],
+            "Attributes" : [ "Spatial", "EntityType", "Marking" ],
             "Object" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft"
          }
       ],
@@ -84,6 +90,34 @@
    "ObjectMappingOut" : [
       {
          "FlyingObject" : [
+            {
+               "FlyingObject" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft"
+            },
+            {
+               "EntityType" : [
+                  {
+                     "Category" : 1
+                  },
+                  {
+                     "CountryCode" : 1
+                  },
+                  {
+                     "Domain" : 1
+                  },
+                  {
+                     "EntityKind" : 1
+                  },
+                  {
+                     "Extra" : 1
+                  },
+                  {
+                     "Specific" : 1
+                  },
+                  {
+                     "Subcategory" : 1
+                  }
+               ]
+            },
             {
                "FlyingObject" : "HLAobjectRoot.BaseEntity.PhysicalEntity.Platform.Aircraft"
             },
@@ -135,14 +169,14 @@
       }
    ],
    "RTIConfiguration" : {
-      "Compiler" : "VC100",
-      "DLLName" : "Portico_1516e_VC100_x64.dll",
+      "Compiler" : "VC142",
+      "DLLName" : "Mak_1516e_VC142_x64",
       "LocalDesignatorsExtra" : "",
-      "Manufacturer" : "Portico",
+      "Manufacturer" : "Mak",
       "OverEncDecFOM" : "",
-      "RTILibPath" : "C:\\code\\RTIs\\portico\\codebase\\dist\\portico-2.666.0\\bin\\vc10;C:\\code\\RTIs\\portico\\codebase\\dist\\portico-2.666.0\\jre\\bin\\server",
+      "RTILibPath" : "",
       "Standard" : "1516e",
       "SystemVariables" : null
    },
-   "Version" : "3.0.257-dev"
+   "Version" : "3.0.498-dev"
 }

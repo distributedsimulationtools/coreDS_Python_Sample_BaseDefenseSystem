@@ -16,6 +16,9 @@ def points_on_circumference(center=(0, 0), r=50, n=10000):
 
         ) for x in range(0, n + 1)]
 
+def logMessageReceivedFromcoreDS(message, level):
+    print(message)
+
 import coreDSPython #Import the coreDS library
 
 centerLatitude = 46.9
@@ -58,17 +61,28 @@ ioconfig["ScriptFolderLocation.Public"] = str(pathlib.Path(__file__).parent.reso
 #Set the configuration files location
 ioconfig["ConfigFolderLocation"] = str(pathlib.Path(__file__).parent.resolve().absolute())
 
-#Setup logging
+#Setup logging, logging to SDTOutput is disabled in favor of the Error Callabck
 ioconfig["LogToStdOutput.Format"] = "[%TimeStamp%]: %Message%";
-ioconfig["LogToStdOutput.Filter"] = "%Severity% >= trace";
-ioconfig["LogToStdOutput.AutoFlush"] = False
-ioconfig["LogToStdOutput.Enabled"] = True
-ioconfig["MaxVerbose"] = "%Severity% >= trace";
+ioconfig["LogToStdOutput.Filter"] = "%Severity% >= error";
+ioconfig["LogToStdOutput.AutoFlush"] = True
+ioconfig["LogToStdOutput.Enabled"] = False
+
+# This will pipe all the logging to the logMessageReceivedFromcoreDS function
+ioconfig["LogToInternal.Format"] = "[%TimeStamp%]: %Message%";
+ioconfig["LogToInternal.Filter"] = "%Severity% >= error";
+ioconfig["LogToInternal.Enabled"] = True
+
+#MaxVerbose will make the to export the verbose level to all coreDS Submodules
+# Even if some loggers use a different verbose level
+ioconfig["MaxVerbose"] = "%Severity% >= error";
+
+coreDSInstance.registerErrorHandler(logMessageReceivedFromcoreDS)
 
 #We show the configuration UI
 coreDSInstance.showConfigHelper(ioconfig, coreDSPython.cCoreDSMapping(), ObjectOut, MessageIn, coreDSPython.cCoreDSMapping())
 
 if (ioconfig.exists("ConfigFile") and ioconfig["ConfigFile"].toString() != ""): #A configuration has been activated
+
     coreDSInstance.initAndConnect(ioconfig) 
     i=0
     while True:
