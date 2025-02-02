@@ -39,6 +39,45 @@
       "FederateType" : "Weapon",
       "FederationName" : "coreDSPython",
       "HLACallbackDeliveryMecanism" : "HLA_EVOKED",
+      "InteractionPublishList" : [
+         {
+            "Attributes" : [
+               "ArticulatedPartData",
+               "DetonationLocation",
+               "DetonationResultCode",
+               "EventIdentifier",
+               "FiringObjectIdentifier",
+               "FinalVelocityVector",
+               "FuseType",
+               "MunitionObjectIdentifier",
+               "MunitionType",
+               "QuantityFired",
+               "RateOfFire",
+               "RelativeDetonationLocation",
+               "TargetObjectIdentifier",
+               "WarheadType"
+            ],
+            "Message" : "HLAinteractionRoot.MunitionDetonation"
+         },
+         {
+            "Attributes" : [
+               "EventIdentifier",
+               "FireControlSolutionRange",
+               "FireMissionIndex",
+               "FiringLocation",
+               "FiringObjectIdentifier",
+               "FuseType",
+               "InitialVelocityVector",
+               "MunitionObjectIdentifier",
+               "MunitionType",
+               "QuantityFired",
+               "RateOfFire",
+               "TargetObjectIdentifier",
+               "WarheadType"
+            ],
+            "Message" : "HLAinteractionRoot.WeaponFire"
+         }
+      ],
       "LogToFile" : {
          "Destination" : "",
          "Enabled" : 0,
@@ -74,6 +113,56 @@
       "SynchronizationPointName" : "SyncPoint",
       "TimeStep" : 1.0
    },
+   "MessageLinkSimLocalOut" : [
+      {
+         "Explosion" : "HLAinteractionRoot.MunitionDetonation"
+      },
+      {
+         "Fire" : "HLAinteractionRoot.WeaponFire"
+      }
+   ],
+   "MessageMappingOut" : [
+      {
+         "Explosion" : [
+            {
+               "Explosion" : "HLAinteractionRoot.MunitionDetonation"
+            },
+            {
+               "DetonationLocation" : [
+                  {
+                     "X" : "ExplosionX"
+                  },
+                  {
+                     "Y" : "ExplosionY"
+                  },
+                  {
+                     "Z" : "ExplosionZ"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "Fire" : [
+            {
+               "Fire" : "HLAinteractionRoot.WeaponFire"
+            },
+            {
+               "FiringLocation" : [
+                  {
+                     "X" : "FireX"
+                  },
+                  {
+                     "Y" : "FireY"
+                  },
+                  {
+                     "Z" : "FireZ"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
    "Metadata" : {
       "FedInfoAppDom" : "",
       "FedInfoMOMVer" : "",
@@ -263,5 +352,5 @@
       "Standard" : "1516e",
       "SystemVariables" : null
    },
-   "Version" : "3.0.498-dev"
+   "Version" : "3.0.501-dev"
 }

@@ -157,9 +157,6 @@ def objectRemoved(objIdentifier):
             print("Removing object id: ", objIdentifier) 
         except:
             pass         
-
-def OtherTypeOfHandler(localUniqueObjectIdentifier, objectType, values):
-    print("Values received: ", values) 
         
 ## Add a callback handler.
 ## When an object if type "Aircraft" is updated, call the "AircraftManager" object

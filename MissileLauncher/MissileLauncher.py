@@ -1,4 +1,4 @@
-﻿'''
+'''
 This sample create an flying object an move around in circle with 
 coordinate centered over Quebec City, QUebec, Canada
 Units are lat/long/alt and are converted to geocentric using coreDS builtin Lua scripts
@@ -73,6 +73,10 @@ MessageOut.add("Explosion", "ExplosionX")
 MessageOut.add("Explosion", "ExplosionY")
 MessageOut.add("Explosion", "ExplosionZ")
 MessageOut.add("Explosion", "TargetObjectID")
+
+MessageOut.add("Fire", "FireX")
+MessageOut.add("Fire", "FireY")
+MessageOut.add("Fire", "FireZ")
 
 ioconfig = coreDSPython.CVariant()
 

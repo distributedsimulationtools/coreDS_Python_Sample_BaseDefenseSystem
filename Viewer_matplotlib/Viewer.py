@@ -107,11 +107,33 @@ def objectRemoved(objIdentifier):
         except:
             pass  
 
+def WeaponFireHandler(messageName,  values):
+    transformer = pyproj.Transformer.from_crs(
+                    {"proj":'geocent', "ellps":'WGS84', "datum":'WGS84'},
+                    {"proj":'latlong', "ellps":'WGS84', "datum":'WGS84'},
+                    )
+    lon, lat, alt = transformer.transform(values['Location.X'].toDouble(),values['Location.Y'].toDouble(),values['Location.Z'].toDouble(),radians=False)
+
+    print("Boom received at location ", values) 
+
+
+def DetonationHandler(messageName,  values):
+    transformer = pyproj.Transformer.from_crs(
+                    {"proj":'geocent', "ellps":'WGS84', "datum":'WGS84'},
+                    {"proj":'latlong', "ellps":'WGS84', "datum":'WGS84'},
+                    )
+    lon, lat, alt = transformer.transform(values['Location.X'].toDouble(),values['Location.Y'].toDouble(),values['Location.Z'].toDouble(),radians=False)
+
+    print("Detonation received at location ", values) 
+
 ##Create a local instance of our Object Manager
 incomingObjManagerObj = ObjectUpdateManager()
 
 ## Add a callback handler.
 ## When an object if type "Object" is updated, call the "AircraftManager" object
+coreDSInstance.registerMessageReceivedHandler("WeaponFire", WeaponFireHandler)
+coreDSInstance.registerMessageReceivedHandler("Detonation", DetonationHandler)
+
 coreDSInstance.registerObjectUpdateHandler(incomingObjManagerObj)
 coreDSInstance.registerObjectRemovedHandler(objectRemoved)
 
@@ -148,8 +170,20 @@ def show_coreDS_ConfigurationWindow():
     ObjectIn.add("Object", "DR_AngularVelocityY")
     ObjectIn.add("Object", "DR_AngularVelocityZ")
 
+    MessageIn = coreDSPython.cCoreDSMapping()
+    MessageIn.add("Detonation", "Location.X")
+    MessageIn.add("Detonation", "Location.Y")
+    MessageIn.add("Detonation", "Location.Z")
+    
+    MessageIn.add("WeaponFire", "Location.X")
+    MessageIn.add("WeaponFire", "Location.Y")
+    MessageIn.add("WeaponFire", "Location.Z")
+
+    print(f"Configuration object attributes added: {ObjectIn}")
+    print(f"Configuration messages parameters added: {MessageIn}")
+
     #We show the configuration UI
-    coreDSInstance.showConfigHelper(ioconfig, ObjectIn, coreDSPython.cCoreDSMapping(), coreDSPython.cCoreDSMapping(), coreDSPython.cCoreDSMapping())
+    coreDSInstance.showConfigHelper(ioconfig, ObjectIn, coreDSPython.cCoreDSMapping(), MessageIn, coreDSPython.cCoreDSMapping())
 
 # Function to add or update objects representing objects
 def add_or_update_object(objects):
