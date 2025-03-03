@@ -23,7 +23,7 @@
       "UseESUForKeepAlive" : false
    },
    "Federate" : {
-      "AutoAchieveSyncPoints" : true,
+      "AutoAchieveSyncPoints" : false,
       "CallbackReportingLevel" : 1,
       "CallbacksToLog" : false,
       "CreateFederationExecution" : true,
@@ -41,9 +41,48 @@
       "FederateType" : "Aircraft",
       "FederationName" : "coreDSPython",
       "HLACallbackDeliveryMecanism" : "HLA_IMMEDIATE",
+      "InteractionSubcribeList" : [
+         {
+            "Attributes" : [
+               "ArticulatedPartData",
+               "DetonationLocation",
+               "DetonationResultCode",
+               "EventIdentifier",
+               "FiringObjectIdentifier",
+               "FinalVelocityVector",
+               "FuseType",
+               "MunitionObjectIdentifier",
+               "MunitionType",
+               "QuantityFired",
+               "RateOfFire",
+               "RelativeDetonationLocation",
+               "TargetObjectIdentifier",
+               "WarheadType"
+            ],
+            "Message" : "HLAinteractionRoot.MunitionDetonation"
+         },
+         {
+            "Attributes" : [
+               "EventIdentifier",
+               "FireControlSolutionRange",
+               "FireMissionIndex",
+               "FiringLocation",
+               "FiringObjectIdentifier",
+               "FuseType",
+               "InitialVelocityVector",
+               "MunitionObjectIdentifier",
+               "MunitionType",
+               "QuantityFired",
+               "RateOfFire",
+               "TargetObjectIdentifier",
+               "WarheadType"
+            ],
+            "Message" : "HLAinteractionRoot.WeaponFire"
+         }
+      ],
       "LogToFile" : {
          "Destination" : "",
-         "Enabled" : 0,
+         "Enabled" : false,
          "Filter" : "%Severity% >= error",
          "MaxVerbose" : "%Severity% >= error"
       },
@@ -59,13 +98,51 @@
          }
       ],
       "OptionalFOMFileList" : null,
-      "RegisterSynchronizationPoint" : false,
+      "RegisterSynchronizationPoint" : true,
       "RequestAttributeValuesUpdate" : true,
       "ResignAction" : "Delete Objects",
       "StartAtGALT" : false,
       "SynchronizationPointName" : "SyncPoint",
       "TimeStep" : 1.0
    },
+   "MessageLinkSimLocalIn" : [
+      {
+         "HLAinteractionRoot.MunitionDetonation" : [ "Fire" ]
+      },
+      {
+         "HLAinteractionRoot.WeaponFire" : [ "Explosion" ]
+      }
+   ],
+   "MessageMappingIn" : [
+      {
+         "HLAinteractionRoot.MunitionDetonation" : [
+            {
+               "HLAinteractionRoot.MunitionDetonation" : "Fire"
+            },
+            {
+               "DetonationLocation" : [
+                  {
+                     "X" : "TargetObjectID"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "HLAinteractionRoot.WeaponFire" : [
+            {
+               "HLAinteractionRoot.WeaponFire" : "Explosion"
+            },
+            {
+               "FiringLocation" : [
+                  {
+                     "X" : "TargetObjectID"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
    "Metadata" : {
       "FedInfoAppDom" : "",
       "FedInfoMOMVer" : "",
@@ -178,5 +255,5 @@
       "Standard" : "1516e",
       "SystemVariables" : null
    },
-   "Version" : "3.0.498-dev"
+   "Version" : "3.0.507-dev"
 }

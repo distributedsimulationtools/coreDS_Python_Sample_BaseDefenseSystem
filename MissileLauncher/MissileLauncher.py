@@ -187,7 +187,7 @@ if (ioconfig.exists("ConfigFile") and ioconfig["ConfigFile"].toString() != ""): 
                         outputvals["ExplosionX"] = currentMissileX
                         outputvals["ExplosionX"] = currentMissileY
                         outputvals["ExplosionX"] = currentMissileZ
-                        coreDSInstance.sendMessage("Explosion", outputvals)
+                        coreDSInstance.sendMessage("Fire", outputvals)
                         launched = True
                     
             coreDSInstance.step() # Check for new data from the simulation backend

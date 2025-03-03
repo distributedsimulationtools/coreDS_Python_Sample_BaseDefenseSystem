@@ -1,4 +1,4 @@
-﻿'''
+'''
 This sample creates "n" flying objects moving in concentric circle on top of Quebec City, Quebec, Canada
 Units are lat/long/alt and are converted to geocentric using coreDS builtin Lua scripts
 '''
@@ -48,6 +48,7 @@ ObjectOut.add("FlyingObject", "Name")
 
 MessageIn = coreDSPython.cCoreDSMapping()
 MessageIn.add("Explosion", "TargetObjectID")
+MessageIn.add("Fire", "TargetObjectID")
 
 ioconfig = coreDSPython.CVariant()
 
@@ -78,6 +79,19 @@ ioconfig["MaxVerbose"] = "%Severity% >= error";
 
 coreDSInstance.registerErrorHandler(logMessageReceivedFromcoreDS)
 
+## Function handler. This is the second way to receive information from the simulation framework
+## You can either register a function call back of a callable object with coreDS
+## This function will be called whenever a GroundVehicule is updated (based on the current mapping)
+def explosionReceived(messagename, values):
+    # This function is called when new values are available for the given "object type"
+    # This is a sample - you will have to add more code to support
+    # multiple instance or multiple object type
+    print("Boom received at location explosionReceived", values) 
+   
+
+coreDSInstance.registerMessageReceivedHandler("Explosion", explosionReceived)
+coreDSInstance.registerMessageReceivedHandler("Fire", explosionReceived)
+
 #We show the configuration UI
 coreDSInstance.showConfigHelper(ioconfig, coreDSPython.cCoreDSMapping(), ObjectOut, MessageIn, coreDSPython.cCoreDSMapping())
 
@@ -102,6 +116,7 @@ if (ioconfig.exists("ConfigFile") and ioconfig["ConfigFile"].toString() != ""): 
             if (i > len(pts[0])) : #all object have the same number of points
                 i = 0
 
+        coreDSInstance.step() # Check for new data from the simulation backend
         time.sleep(0.1) # sleep, no need to flood the network
 
 else:
